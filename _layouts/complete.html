@@ -1,26 +1,48 @@
+{% assign lang			= page.language ? page.language : "de" %}
+{% assign languages		= "" | split: "" %}
+
+{% for collection in site.collections %}
+	{% if collection.language  %}
+
+
+		{% if collection.language == lang %}
+			{% assign chapters 		= collection.docs %}	
+		{% else %}			
+			{% assign languages		= languages | push: collection.language %}
+		{% endif%}
+		
+	{% endif%}
+
+{% endfor %}
+
+
+
+
+
 <!DOCTYPE html>
-<html lang="de-de" ng-app = "handbook" ng-class	= "{'show-toc': show_toc}">
+<html 
+	lang		= "{{lang}}" 
+	ng-app 		= "FreifunkOER" 
+	ng-class	= "{'show-toc': show_toc}"
+>
+
 	{% include head.html %}
 
 
-	{% assign lang			= page.language ? page.language : "de" %}
-	{% assign languages		= "" | split: "" %}
-
-	{% for collection in site.collections %}
-		{% if collection.language  %}
-
-
-			{% if collection.language == lang %}
-				{% assign chapters 		= collection.docs %}	
-			{% else %}			
-				{% assign languages		= languages | push: collection.language %}
-			{% endif%}
-			
-		{% endif%}
-
-	{% endfor %}
 
 	<body id = "top">
+
+
+		<!-- javascript misssing -->
+		<div id = "fo-javascript-missing">
+			<script id = "javascrip">
+				var el = document.getElementById('fo-javascript-missing')
+				el.parentNode.removeChild(el)
+			</script>
+			Please enable Javascript.
+		</div>
+
+
 
 		<header>
 
