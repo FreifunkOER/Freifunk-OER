@@ -1,101 +1,60 @@
-{% assign lang			= page.language ? page.language : "de" %}
 
-	{% for collection in site.collections %}
-		{% if collection.language == lang %}
-			{% assign chapters 		= collection.docs %}				
-		{% endif%}
-	{% endfor %}
-
-
-	{% capture cache %}
-		{% assign A1 = "" | split: "" %}
-		{% assign A2 = "" | split: "" | push: 0 %}
-		{% assign A3 = "" | split: "" | push: 0 %}
-		{% assign A4 = "" | split: "" | push: 0 %}
-		{% for chapter in chapters %}
-				{% assign numbers =  chapter.number | split: "." %}
-				{% assign size = numbers | size %}
-				{% if size > 0 %} 
-					{% assign n = numbers[0] | times: 1 %}
-					{% assign A1 = A1 | push: n %} 
-				{% endif %}
-				{% if size > 1 %} 
-					{% assign n = numbers[1] | times: 1 %}
-					{% assign A2 = A2 | push: n %} 
-				{% endif %}
-				{% if size > 2 %} 
-					{% assign n = numbers[2] | times: 1 %}
-					{% assign A3 = A3 | push: n %} 
-				{% endif %}
-				{% if size > 3 %} 
-					{% assign n = numbers[3] | times: 1 %}
-					{% assign A4 = A4 | push: n %} 
-				{% endif %}
-		{% endfor %}
-		{% assign A1 = A1 | uniq | sort %}
-		{% assign A2 = A2 | uniq | sort %}
-		{% assign A3 = A3 | uniq | sort %}
-		{% assign A4 = A4 | uniq | sort %}
-		{% assign sorted_chapters = "" | split: "" %}
-		{% for x in A1 %}
-			{% for y in A2 %}
-				{% for z in A3 %}
-					{% for v in A4 %}
-						{% assign chapter_number = "" | append: x %}
-							{% if y != 0 %}
-								{% assign chapter_number = chapter_number | append: "."| append: y %}
-								{% if z != 0 %}
-									{% assign chapter_number = chapter_number | append: "." | append: z %}
-									{% if v != 0 %}
-										{% assign chapter_number = chapter_number | append: "." | append: v %}
-									{% endif %}
-								{% endif %}
-							{% endif %}
-						{% assign matching_chapters = chapters | where: "number", chapter_number %}
-						{% for chapter in matching_chapters | sort: "type" %}
-							{% assign sorted_chapters = sorted_chapters | push: chapter %}						
-						{% endfor %}
-						{% if z == 0 %} {% break %} {% endif %}
-					{% endfor %}
-					{% if y == 0 %} {% break %} {% endif %}
-				{% endfor %}
-			{% endfor %}
-		{% endfor %} 
-		{% assign chapters = sorted_chapters %}
-	{% endcapture %}{% assign cache = nil %}
 
 
 
 <div id ="toc" ng-click	= "toggleTOC()">
-	{% if languages.size != 0 %}
-		<div class ="languages">
-			<a>
-				{{page.language}}
-			</a>
-			{% for language in languages %}
-				<a 
-					href			= "index_{{language}}.html"
-				>
-					{{language}}
-				</a>
-			{% endfor %}
-		</div>
-	{% endif %}
-
 
 	<ul>
 		
 		{% for chapter in chapters %}
+			{% assign current_chapter_number 	= chapter.number | split : "." %}
+			{% assign current_depth 			= current_chapter_number | size %}
+
+			{% if current_depth	> last_depth %} 	
+				{% assign steps = current_depth | minus : last_depth %}
+				{% for i in (1..steps) %}
+					<ul class = "level"> 	
+				{% endfor %}
+			{% endif %}
+
+
+			{% if current_depth < last_depth %} 
+				{% assign steps = last_depth | minus : current_depth %}
+				{% for i in (1..steps) %}
+					</ul> 	
+				{% endfor %}
+			{% endif %}
+
+			<li class = "chapter-{{current_chapter_number | first}} depth-{{current_chapter_number | size}}">
+				<a href ="#chapter-{{chapter.number}}">
+					<div class = "chapter-title">	
+					 	<span class = "chapter-number">
+							{% for digit in current_chapter_number %}<span class ="digit">{{ digit }}</span>{% if forloop.last != true %}.{% endif %}{% endfor %}
+						</span>
+						{{chapter.title}}
+					</div>
+				</a>
+			</li>
+			
+			
+			{% assign last_chapter_number 	= current_chapter_number %}
+			{% assign last_depth 			= current_depth %}
+
+
+		{% endfor %}
+		
+		{% if last_depth > 1%} 
+			{% for i in (1..last_depth) %}
+				</ul> 	
+			{% endfor %}
+		{%endif %}
+
+
+
+		{% for chapter in chapters %}
 				{% assign number_arr = chapter.number | split: "." %}
 				{% if chapter.type != 'excursion' %}
-					<li class = "chapter-{{number_arr | first}} depth-{{number_arr | size}}">
-						<a href ="#chapter-{{chapter.number}}">
-							<span class = "chapter-number">
-								{% for digit in number_arr %}<span class ="digit">{{ digit }}{% if forloop.last != true %}.{% endif %}</span>{% endfor %}
-							</span>
-							<span class = "chapter-title">	{{chapter.title | markdownify}}	</span>
-						</a>
-					</li>
+					
 				{% endif %}
 		{% endfor %}
 	</ul>

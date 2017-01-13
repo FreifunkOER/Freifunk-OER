@@ -12,11 +12,18 @@ angular.module('FreifunkOER',
 	'$timeout',
 
 	function($rootScope, $document, $window, $timeout){
+		$rootScope.show = {}
 
-		function adjustToWindowSize(){
-			
-		}
+		var scheduledApply = undefined
 
+		angular.element(window).on('resize', function(){ 
+			window.requestAnimationFrame(function(){
+				if(scheduledApply) $timeout.cancel(scheduledApply)
+
+				scheduledApply = 	$timeout(function(){
+										$rootScope.show = {}
+									}, 100)
+			})
+		})
 	}
 ])		
-
