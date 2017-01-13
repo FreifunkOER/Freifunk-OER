@@ -15,15 +15,6 @@
 	<body id = "top">
 
 
-		<!-- javascript misssing -->
-		<div id = "fo-javascript-missing">
-			<script id = "javascrip">
-				var el = document.getElementById('fo-javascript-missing')
-				el.parentNode.removeChild(el)
-			</script>
-			Please enable Javascript.
-		</div>
-
 		<button 
 			id 			= "toggleMenu"
 			ng-click	= "show.menu = !show.menu" 
@@ -65,6 +56,16 @@
 		{% assign last_chapter_number	= "0.0.0.0" | split : '.' %}
 		{% assign last_depth 			= 0 %}
 		<section class	=	"main-content chapters level">
+
+			<!-- javascript misssing -->
+			<div id = "fo-javascript-missing">
+				<script id = "javascrip">
+					var el = document.getElementById('fo-javascript-missing')
+					el.parentNode.removeChild(el)
+				</script>
+				Please enable Javascript.
+			</div>
+			
 
 			{% for chapter in chapters %}
 				{% assign current_chapter_number 	= chapter.number | split : "." %}
