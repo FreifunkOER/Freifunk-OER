@@ -151,6 +151,7 @@ h1, h2, h3, h4, h5, h6 {
 a {
 	color:					inherit;
 	text-decoration:		none;
+	outline: 				0 !important;
 }
 
 button::-moz-focus-inner {
@@ -174,7 +175,8 @@ button::-moz-focus-inner {
 	padding:				0;
 }
 
-#toc li {
+#toc li a {
+	display:				block;
 	padding:				0.5rem;
 }
 
