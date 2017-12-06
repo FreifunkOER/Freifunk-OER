@@ -1,6 +1,6 @@
 ---
 title: "Beispiel Double"
-number: "1.10"
+number: "14"
 ---
 
 Text...
