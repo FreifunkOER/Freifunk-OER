@@ -226,3 +226,14 @@ nav.secondary a {
 }
 
 
+
+
+
+
+
+/* images */
+
+article img {
+	display:			block;
+	width:				100%;
+}
