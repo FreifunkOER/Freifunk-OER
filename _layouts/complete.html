@@ -11,6 +11,8 @@
 	{% include head.html %}
 
 
+		
+
 
 	<body id = "top">
 
@@ -26,6 +28,8 @@
 			class 		= "main"
 			ng-click	= "show.menu = false"
 		>
+			<header>
+			</header>
 			{% include toc.html %}
 		</nav>
 
@@ -42,9 +46,9 @@
 				</div>
 			{% endif %}
 
-			<a>X</a>
-			<a>Y</a>
-			<a>Z</a>
+			<a href = "https://github.com/FreifunkOER/Freifunk-OER"><i class = "fa fa-github"></i></a>
+			<a href = "http://www.jugendnetz-berlin.de/de/freifunk/die-foerderinitiative.php"><i class = "fa fa-info-circle"></i></a>
+			<!-- <a>Z</a> -->
 
 		</nav>
 
@@ -56,7 +60,6 @@
 		{% assign last_chapter_number	= "0.0.0.0" | split : '.' %}
 		{% assign last_depth 			= 0 %}
 		<section class	=	"main-content chapters level">
-
 			<!-- javascript misssing -->
 			<div id = "fo-javascript-missing">
 				<script id = "javascrip">
