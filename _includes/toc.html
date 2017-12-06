@@ -5,33 +5,26 @@
 <div id ="toc" ng-click	= "toggleTOC()">
 
 	<ul>
-		
+		{% assign last_depth = 0 %}
 		{% for chapter in chapters %}
 			{% assign current_chapter_number 	= chapter.number | split : "." %}
 			{% assign current_depth 			= current_chapter_number | size %}
 
-			{% if current_depth	> last_depth %} 	
-				{% assign steps = current_depth | minus : last_depth %}
-				{% for i in (1..steps) %}
-					<ul class = "level"> 	
-				{% endfor %}
-			{% endif %}
+			{% if current_depth == 1 %}
+				</ul>
+				<ul>
+			{% endif %} 
 
-
-			{% if current_depth < last_depth %} 
-				{% assign steps = last_depth | minus : current_depth %}
-				{% for i in (1..steps) %}
-					</ul> 	
-				{% endfor %}
-			{% endif %}
 
 			<li class = "chapter-{{current_chapter_number | first}} depth-{{current_chapter_number | size}}">
 				<a href ="#chapter-{{chapter.number}}">
-					<div class = "chapter-title">	
+					<div class = "chapter-heading">	
 					 	<span class = "chapter-number">
 							{% for digit in current_chapter_number %}<span class ="digit">{{ digit }}</span>{% if forloop.last != true %}.{% endif %}{% endfor %}
 						</span>
-						{{chapter.title}}
+						<span class = "chapter-title">
+							{{chapter.title}}
+						</span>
 					</div>
 				</a>
 			</li>
@@ -42,13 +35,7 @@
 
 
 		{% endfor %}
-		
-		{% if last_depth > 1%} 
-			{% for i in (1..last_depth) %}
-				</ul> 	
-			{% endfor %}
-		{%endif %}
-
+	
 
 
 		{% for chapter in chapters %}
