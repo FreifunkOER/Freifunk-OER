@@ -604,7 +604,8 @@ aside.right > div a {
 .narrow #toc {
 	display:			inline-block;
 	position:			relative;
-	background:			#323A7F
+	background:			#323A7F;
+	box-shadow:			0 0 1rem rgba(0,0,0,0.5);
 }
 
 .narrow #toc ul {
@@ -650,7 +651,7 @@ aside.right > div a {
 
 .narrow #toc > ul {
 	width:				auto;
-	max-width:			30rem;
+	max-width:			25rem;
 }
 
 #toc li {
