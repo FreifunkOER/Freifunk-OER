@@ -178,7 +178,7 @@ angular.module('FreifunkOER',
 
 				})
 
-				//there is no $apply here, i dont want to call $apply a hundret times during a scroll. toc will pull the info form $rootscope on its own on scroll
+				//there is no $apply here, i dont want to call $apply a hundret times during a scroll. toc will pull the info form $rootScope on its own on scroll
 				$rootScope.activeChapter = chapter
 			})
 		})
@@ -204,6 +204,12 @@ angular.module('FreifunkOER',
 
 			if(threshold_px > width){
 				$rootScope.narrow = true
+
+				if(!$rootScope.toc_hidden_on_start){
+					$rootScope.show.toc 			= false
+					$rootScope.toc_hidden_on_start 	= true
+				}
+
 				html.addClass('narrow')
 				html.removeClass('wide')
 				html.css('fonrt-size', (width/narrow_rem) + 'px')
