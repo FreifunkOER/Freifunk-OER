@@ -42,7 +42,6 @@ html {
 	margin:				0;
 	min-height:			100%;
 	background:			#fff;
-	scroll-behavior: 	smooth;
 	opacity:			1;
 }
 
@@ -577,6 +576,7 @@ aside.right > div a {
 #toc:hover,
 .narrow #toc {
 	overflow-y:			scroll;
+	scroll-behavior: 	smooth;
 }
 
 
@@ -645,10 +645,12 @@ aside.right > div a {
 	margin:				1rem;
 	background:			#fff;
 	width:				22rem;
+
 }
 
 .narrow #toc > ul {
 	width:				auto;
+	max-width:			30rem;
 }
 
 #toc li {
