@@ -62,6 +62,10 @@ body {
 
 }
 
+.narrow body{
+	border:				0 none;
+}
+
 body:after {
 	content:			'';
 	position:			fixed;
@@ -71,6 +75,10 @@ body:after {
 	left:				0;
 	right:				0;
 	z-index:			99999;
+}
+
+.narrow body:after{
+	display:			none;
 }
 
 
@@ -159,6 +167,7 @@ header h1 {
 .narrow header h1 {
 	position:			static;
 	width:				auto;
+	font-size:			2.5rem;
 	max-width:			9em;
 	padding:			0 1rem;
 	text-align:			center;
@@ -383,7 +392,6 @@ aside.left {
 	position:				fixed;
 	bottom:					1rem;
 	z-index:				99;
-	background-color:		rgba(0,0,0,0.8);
 }	
 
 
@@ -495,6 +503,7 @@ aside.right > div a {
 	opacity:			0;
 	pointer-events: 	none;
 }
+
 .hero-out #goto-top {
 	pointer-events: 	auto;
 	opacity:			1;
@@ -773,11 +782,15 @@ section.main-content [id]:before {
 }
 
 
-section.main-content .mainchapter{
+section.main-content .mainchapter {
 	background:			#fff;
 	padding:			4rem;
 	margin-top:			1rem;
 	margin-bottom:		5rem;
+}
+
+.narrow section.main-content .mainchapter {
+	padding:			4rem 1rem;
 }
 
 
