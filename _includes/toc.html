@@ -7,9 +7,8 @@
 	ng-click	= "narrow && toggleTOC(false); $event.stopPropagation()"
 	ng-class	= "{scroll: no_scrollbar_width}"
 >
-	{{no_scrollbar_width}}
 	<ul>
-
+		<li>nsbw: {{no_scrollbar_width}}</li>
 		{% assign last_depth = 0 %}
 		{% for chapter in chapters %}
 			{% assign current_chapter_number 	= chapter.number | split : "." %}
