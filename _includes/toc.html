@@ -2,7 +2,11 @@
 
 
 
-<div id ="toc" ng-click	= "narrow && toggleTOC(false); $event.stopPropagation()">
+<div 
+	id 			= "toc" 
+	ng-click	= "narrow && toggleTOC(false); $event.stopPropagation()"
+	ng-class	= "{scroll: no_scrollbar_width}"
+>
 
 	<ul>
 

@@ -186,6 +186,28 @@ angular.module('FreifunkOER',
 
 
 
+		function getScrollBarWidth(){
+			var div	= 	angular.element('<div></div>')
+						.css({
+							'width': 		'100px',
+							'height':		'100px',
+							'position':		'absolute',
+							'overflow-y':	'scroll'
+						})
+
+			angular.element(document.getElementsByTagName('body')[0]).append(div)
+
+			scrollbar_width	=	(100-div[0].clientWidth)
+
+			div.remove()
+		}
+
+		if(getScrollBarWidth() == 0){
+			$rootScope.no_scrollbar_width = true
+		}
+
+
+
 		//check window width and switch layout:
 
 		var threshold_px	= undefined 
