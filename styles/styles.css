@@ -30,6 +30,12 @@ noscript{
 
 html {
 	overflow:			auto;
+	border-color:		#D10A36;
+	border-style:		solid;
+	border-left-width:	1rem;
+	border-right-width:	1rem;
+	border-top-width:	0rem;
+	border-bottom-width:0rem;
 }
 
 html.narrow.show-toc {
@@ -46,12 +52,6 @@ html {
 }
 
 body {
-	border-color:		#D10A36;
-	border-style:		solid;
-	border-left-width:	1rem;
-	border-right-width:	1rem;
-	border-top-width:	0rem;
-	border-bottom-width:0rem;
 
 	background-color:	#323A7F;
 
