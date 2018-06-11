@@ -260,6 +260,11 @@ header .panel {
 	color:				#D10A36;
 }
 
+.narrow header .panel {
+	left:				0;
+	right:				0;
+}
+
 
 header .panel > * {
 	display:			flex;
@@ -386,8 +391,8 @@ aside.left {
 .narrow aside.left {
 	position:				fixed;
 	top:					0;
-	left:					1rem;
-	right:					1rem;
+	left:					0rem;
+	right:					0rem;
 	margin-top:				3rem;
 	position:				fixed;
 	bottom:					1rem;
