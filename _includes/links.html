@@ -1,0 +1,23 @@
+
+<a href = "https://github.com/FreifunkOER/Freifunk-OER"><i class = "fa fa-github"></i></a>
+
+<a href = "http://www.jugendnetz-berlin.de/de/freifunk/die-foerderinitiative.php"><i class = "fa fa-info-circle"></i></a>
+
+
+{% if languages.size != 0 %}
+	<div class		= "languages">
+		<a>					
+			{{page.language}}
+		</a>
+
+		{% for language in languages %}
+		<a 
+			href			= "index_{{language}}.html"
+		>
+			{{language}}
+		</a>
+		{% endfor %}
+	</div>
+{% endif %}
+
+<!-- items below this line will be moved to the menu on mobile devices -->

@@ -1,6 +1,6 @@
 ---
 layout: complete
-title:	Freifunk-OER
+title:	Das Handbuch zum Freifunknetz
 language: de
 ---
 

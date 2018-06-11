@@ -2,9 +2,10 @@
 
 
 
-<div id ="toc" ng-click	= "toggleTOC()">
+<div id ="toc" ng-click	= "narrow && toggleTOC(false); $event.stopPropagation()">
 
 	<ul>
+
 		{% assign last_depth = 0 %}
 		{% for chapter in chapters %}
 			{% assign current_chapter_number 	= chapter.number | split : "." %}
@@ -12,12 +13,16 @@
 
 			{% if current_depth == 1 %}
 				</ul>
-				<ul>
+				<ul active-chapter-match = "^chapter-{{current_chapter_number | first}}(\.|$)">
 			{% endif %} 
 
 
-			<li class = "chapter-{{current_chapter_number | first}} depth-{{current_chapter_number | size}}">
+			<li 
+				class 					= "chapter-{{current_chapter_number | first}} depth-{{current_chapter_number | size}}"
+				active-chapter-match 	= "^chapter-{{chapter.number}}$" 
+			>
 				<a href ="#chapter-{{chapter.number}}">
+					<i class = "fa fa-angle-right fa-xs"></i>
 					<div class = "chapter-heading">	
 					 	<span class = "chapter-number">
 							{% for digit in current_chapter_number %}<span class ="digit">{{ digit }}</span>{% if forloop.last != true %}.{% endif %}{% endfor %}

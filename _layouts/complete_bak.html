@@ -1,0 +1,133 @@
+{% include prep.liquid %}
+
+	
+<!DOCTYPE html>
+<html 
+	lang		= "{{lang}}" 
+	ng-app 		= "FreifunkOER" 
+	class		= "{% raw %} {{show.menu ? 'showMenu' : ''}} {% endraw %}"
+>
+
+	{% include head.html %}
+
+
+		
+
+
+	<body id = "top">
+		<header>
+			
+
+			<button 
+				id 			= "toggleMenu"
+				ng-click	= "show.menu = !show.menu" 
+			>
+				<i class = "fa {% raw %} {{show.menu ? 'fa-times' : 'fa-bars'}} {% endraw %}"></i>
+			</button>
+
+
+
+
+			<nav 
+				class 		= "main"
+				ng-click	= "show.menu = false"
+			>
+				<header>
+				</header>
+				{% include toc.html %}
+			</nav>
+
+
+			<nav class = "secondary">
+
+				{% if languages.size != 0 %}
+					<div class	= "languages">
+						<a>{{page.language}}</a>
+
+						{% for language in languages %}
+							<a href	= "index_{{language}}.html">{{language}}</a>
+						{% endfor %}
+					</div>
+				{% endif %}
+
+				<a href = "https://github.com/FreifunkOER/Freifunk-OER"><i class = "fa fa-github"></i></a>
+				<a href = "http://www.jugendnetz-berlin.de/de/freifunk/die-foerderinitiative.php"><i class = "fa fa-info-circle"></i></a>
+				<!-- <a>Z</a> -->
+
+			</nav>
+	
+
+
+			
+			<h1>{{ page.title }}</h1>
+			<button>
+				lesen
+			</button>
+			<div class ="logos">
+					<span>mediale pfade</span>
+					<span>Freifunk für Medienkompetenz und Bildung</span>
+					<span>OKF</span>
+			</div>
+
+			
+			<aside>
+				{{ page.content | markdownify }}
+			</aside>
+
+		</header>
+
+
+
+		{% assign last_chapter_number	= "0.0.0.0" | split : '.' %}
+		{% assign last_depth 			= 0 %}
+		<section class	=	"main-content chapters level">
+			<!-- javascript misssing -->
+			<div id = "fo-javascript-missing">
+				<script id = "javascrip">
+					var el = document.getElementById('fo-javascript-missing')
+					el.parentNode.removeChild(el)
+				</script>
+				Please enable Javascript.
+			</div>
+			
+
+			{% for chapter in chapters %}
+				{% assign current_chapter_number 	= chapter.number | split : "." %}
+				{% assign current_depth 			= current_chapter_number | size %}
+
+				{% if current_depth	> last_depth %} 	
+					{% assign steps = current_depth | minus : last_depth %}
+					{% for i in (1..steps) %}
+						<section class = "level"> 	
+					{% endfor %}
+				{% endif %}
+
+
+				{% if current_depth < last_depth %} 
+					{% assign steps = last_depth | minus : current_depth %}
+					{% for i in (1..steps) %}
+						</section> 	
+					{% endfor %}
+				{% endif %}
+
+				{{chapter.output}}
+				
+				
+				{% assign last_chapter_number 	= current_chapter_number %}
+				{% assign last_depth 			= current_depth %}
+
+
+			{% endfor %}
+			
+			{% if last_depth > 1%} 
+				{% for i in (1..last_depth) %}
+					</section> 	
+				{% endfor %}
+			{%endif %}
+
+		</section>
+
+		{% include footer.html %}
+
+	</body>
+</html>
