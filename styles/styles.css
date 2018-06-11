@@ -575,8 +575,9 @@ aside.right > div a {
 
 #toc:hover,
 .narrow #toc {
-	overflow-y:			scroll;
-	scroll-behavior: 	smooth;
+	overflow-y:						scroll;
+	scroll-behavior: 				smooth;
+	-webkit-overflow-scrolling: 	touch;
 }
 
 

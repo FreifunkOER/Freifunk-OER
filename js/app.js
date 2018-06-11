@@ -193,7 +193,7 @@ angular.module('FreifunkOER',
 		function adjustContentWidth(){		
 			var width 			= document.body.getBoundingClientRect().width,
 				rem				= parseInt(getComputedStyle(html[0]).getPropertyValue('font-size')),
-				threshold_rem	= 70, // switch if content width < 70 rem,
+				threshold_rem	= 60, // switch if content width < 60 rem,
 				narrow_rem		= 20	
 
 			threshold_px = threshold_px || threshold_rem * rem
