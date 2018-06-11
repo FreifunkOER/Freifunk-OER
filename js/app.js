@@ -197,9 +197,11 @@ angular.module('FreifunkOER',
 
 			angular.element(document.getElementsByTagName('body')[0]).append(div)
 
-			scrollbar_width	=	(100-div[0].clientWidth)
+			var scrollbar_width	=	(100-div[0].clientWidth)
 
 			div.remove()
+
+			return scrollbar_width
 		}
 
 		console.log(getScrollBarWidth())
