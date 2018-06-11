@@ -30,12 +30,8 @@ noscript{
 
 html {
 	overflow:			auto;
-	border-color:		#D10A36;
-	border-style:		solid;
-	border-left-width:	1rem;
-	border-right-width:	1rem;
-	border-top-width:	0rem;
-	border-bottom-width:0rem;
+	padding-right:		1rem;
+	padding-left:		1rem;
 }
 
 html.narrow.show-toc {
@@ -62,7 +58,7 @@ body {
 }
 
 html.narrow{
-	border:				0 none;
+	padding:			0;
 }
 
 body:after {
@@ -77,6 +73,30 @@ body:after {
 }
 
 .narrow body:after{
+	display:			none;
+}
+
+#frame-left,
+#frame-right {
+	position:			fixed;
+	top:				0;
+	bottom:				0;
+	width:				1rem;
+	background-color:	#D10A36;
+	z-index:			999999999;
+}
+
+#frame-left {
+	left:				0;
+}
+
+
+#frame-right {
+	right:				0;
+}
+
+.narrow #frame-left,
+.narrow #frame-right  {
 	display:			none;
 }
 
