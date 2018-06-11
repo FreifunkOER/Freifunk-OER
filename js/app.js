@@ -202,6 +202,8 @@ angular.module('FreifunkOER',
 			div.remove()
 		}
 
+		console.log(getScrollBarWidth())
+
 		if(getScrollBarWidth() == 0){
 			$rootScope.no_scrollbar_width = true
 		}
