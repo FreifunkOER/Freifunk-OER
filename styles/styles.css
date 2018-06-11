@@ -263,6 +263,8 @@ header .panel {
 .narrow header .panel {
 	left:				0;
 	right:				0;
+	padding-left:		1rem;
+	padding-right:		1rem;
 }
 
 
@@ -337,33 +339,33 @@ header .logos {
 }
 
 header .logos > *{
-	display:			inline-block;
-	flex:				0 0 auto;
+	display:				inline-block;
+	flex:					0 0 auto;
 
-	height:				10rem;
-	width:				16rem;
+	height:					10rem;
+	width:					16rem;
 
 
-	background-size:	contain;
-	background-position:50% 50%;
-	background-repeat:	no-repeat;
-	vertical-align:		middle;
+	background-size:		contain;
+	background-position:	50% 50%;
+	background-repeat:		no-repeat;
+	vertical-align:			middle;
 
-	filter:				grayscale(100%) contrast(0%) brightness(200%)
+	filter:					grayscale(100%) contrast(0%) brightness(200%)
 
 }
 
 
 aside.left {
-	width:				0;
+	width:					0;
 }
 
 .show-toc aside.left{
-	width:				auto;
+	width:					auto;
 }
 
 .wide header aside.left {
-	overflow:			hidden;
+	overflow:				hidden;
 }
 
 
@@ -395,7 +397,7 @@ aside.left {
 	right:					0rem;
 	margin-top:				3rem;
 	position:				fixed;
-	bottom:					1rem;
+	bottom:					0rem;
 	z-index:				99;
 }	
 
@@ -709,7 +711,7 @@ aside.right > div a {
 
 #toc li a {
 	color:				inherit;
-	display:			block;
+	display:			flex;
 	line-height:		1.2;
 	padding-right:		1rem;
 	padding-top:		0.2em;
