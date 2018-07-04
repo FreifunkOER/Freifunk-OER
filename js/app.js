@@ -34,7 +34,9 @@ angular.module('FreifunkOER',
 				var regex = new RegExp(attrs.activeChapterMatch)
 
 				$document.on('scroll', function(){
-					element.toggleClass('active-chapter', regex.exec($rootScope.activeChapter))
+					window.requestAnimationFrame(function(){
+						element.toggleClass('active-chapter', regex.exec($rootScope.activeChapter))						
+					})
 				})
 
 			}
@@ -168,10 +170,9 @@ angular.module('FreifunkOER',
 
 
 
-  					if(rect.top 	> viewHeight) 	return null
-  					if(rect.bottom 	< 0)			return null
+  					if(rect.top 	> viewHeight / 2) 	return null
 
-  					if(last_top === undefined || (rect.top > last_top)){
+  					if(last_top === undefined || Math.abs(rect.top) < Math.abs(last_top) ){
   						last_top = rect.top
   						chapter = cn
   					}
@@ -204,7 +205,6 @@ angular.module('FreifunkOER',
 			return scrollbar_width
 		}
 
-		console.log(getScrollBarWidth())
 
 		if(getScrollBarWidth() == 0){
 			$rootScope.no_scrollbar_width = true
