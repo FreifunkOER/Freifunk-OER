@@ -992,8 +992,8 @@ section.main-content table td {
 }
 
 .float-left img {
-	height:					13.6em;
-	width:					auto;
+	height:					auto;
+	width:					100%;
 }
 
 
