@@ -982,7 +982,8 @@ section.main-content table td {
 	display:				inline-block;
 	padding:				1.4em 1.4em 1.4em 0;
 	float:					left;
-	width:					45%;
+	width:					15rem;
+	max-width:				45%;
 }
 
 .float-left  * {
@@ -1002,7 +1003,8 @@ section.main-content table td {
 	display:				inline-block;
 	padding:				0 1.4em 1.4em 1.4em;
 	float:					right;
-	width:					45%;
+	width:					15rem;
+	max-width:				45%;
 }
 
 .float-right  * {
