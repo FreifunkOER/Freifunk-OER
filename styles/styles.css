@@ -978,9 +978,12 @@ section.main-content table td {
 
 .float-left {
 	position:				relative;
+	box-sizing: 			border-box;
 	display:				inline-block;
 	padding:				1.4em 1.4em 1.4em 0;
 	float:					left;
+	width:					15rem;
+	max-width:				45%;
 }
 
 .float-left  * {
@@ -989,16 +992,19 @@ section.main-content table td {
 }
 
 .float-left img {
-	height:					13.6em;
-	width:					auto;
+	height:					auto;
+	width:					100%;
 }
 
 
 .float-right {
 	position:				relative;
+	box-sizing: 			border-box;
 	display:				inline-block;
 	padding:				0 1.4em 1.4em 1.4em;
 	float:					right;
+	width:					15rem;
+	max-width:				45%;
 }
 
 .float-right  * {
@@ -1007,8 +1013,8 @@ section.main-content table td {
 }
 
 .float-right img {
-	height:					13.6em;
-	width:					auto;
+	height:					auto;
+	width:					100%;
 }
 
 
