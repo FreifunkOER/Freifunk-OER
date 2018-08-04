@@ -946,6 +946,11 @@ section.main-content table td {
 	cursor:					pointer;
 }
 
+.cap-20 img,
+.cap-20 .caption {
+	max-width:				20rem;
+}
+
 .full-screen {
 	position:				fixed !important;
 	top:					0;
@@ -968,7 +973,8 @@ section.main-content table td {
 	width:					100vw;
 	height:					100vh;
 	object-fit: 			contain;
-	object-position: 		50% 50%
+	object-position: 		50% 50%;
+	max-width:				100% !important;
 }
 
 .full-width img{
@@ -1038,5 +1044,13 @@ section.main-content table td {
 article img {
 	display:				block;
 	width:					50%;
+	margin:					auto;
+}
+
+
+.caption {
+	text-align:				right;
+	margin-top:				1rem;
+	font-size:				0.85em;
 	margin:					auto;
 }
