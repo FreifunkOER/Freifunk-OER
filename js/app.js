@@ -179,8 +179,12 @@ angular.module('FreifunkOER',
 
 				})
 
-				//there is no $apply here, i dont want to call $apply a hundret times during a scroll. toc will pull the info form $rootScope on its own on scroll
+				//there is no $apply here, i dont want to call $apply a hundred times during a scroll. toc will pull the info form $rootScope on its own on scroll
 				$rootScope.activeChapter = chapter
+
+				if(chapter && '#'+chapter != window.location.hash) history.replaceState(null, null, '#'+chapter)
+
+
 			})
 		})
 
