@@ -32,6 +32,7 @@ html {
 	overflow:			auto;
 	padding-right:		1rem;
 	padding-left:		1rem;
+	scroll-behavior: 	smooth;
 }
 
 html.narrow.show-toc {

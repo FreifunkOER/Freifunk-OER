@@ -4,4 +4,4 @@ title:	Das Handbuch zum Freifunknetz
 language: de
 ---
 
-Index
+<!-- leave this area empty -->
