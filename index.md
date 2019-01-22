@@ -1,6 +1,6 @@
 ---
 layout: complete
-title:	Handbuch: Freifunk für Medienkompetenz und Beteiligung
+title:	Handbuch Freifunk für Medienkompetenz und Beteiligung
 language: de
 ---
 
