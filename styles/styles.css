@@ -361,7 +361,7 @@ header .logos > *{
 	display:				inline-block;
 	flex:					1 1 16rem;
 
-	height:					10rem;
+	height:					8rem;
 	max-width:				20rem;
 
 
@@ -369,6 +369,8 @@ header .logos > *{
 	background-position:	50% 50%;
 	background-repeat:		no-repeat;
 	vertical-align:			middle;
+
+	margin:					1rem;
 
 	filter:					grayscale(100%) contrast(0%) brightness(200%)
 
