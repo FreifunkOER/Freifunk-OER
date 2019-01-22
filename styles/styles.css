@@ -334,30 +334,28 @@ header .panel > * > * {
 
 
 header .content {
-	text-align:			center;
-	display:			flex !important;
-	align-items: 		center;
-	justify-content:	center;
+	text-align:				center;
+	display:				flex !important;
+	align-items: 			center;
+	justify-content:		center;
 }
 
 
 
 header .logos {
-	position:			absolute;
-	bottom:				0;
-	height:				20rem;
-	display:			flex;
-	width:				100%;
-	justify-content:	space-around;
-	align-content:		center;
-	flex-wrap:			wrap;
+	position:				absolute;
+	bottom:					0;
+	height:					20rem;
+	display:				flex;
+	width:					100%;
+	justify-content:		space-around;
+	align-content:			center;
+	flex-wrap:				wrap;
 }
 
 .narrow header .logos {
-	position:			static;
-	flex-direction: 	column;
-	align-items: 		center;
-	height:				auto;
+	position:				static;
+	height:					auto;
 }
 
 header .logos > *{
@@ -380,24 +378,10 @@ header .logos > *{
 }
 
 
-.narrow header .logos > *{
-	display:				inline-block;
-	flex:					0 0 0;
-
-	height:					8rem;
-	width:					20rem;
-
-
-	background-size:		contain;
-	background-position:	50% 50%;
-	background-repeat:		no-repeat;
-	vertical-align:			middle;
-
-	margin:					1rem 0;
-
-	filter:					grayscale(100%) contrast(0%) brightness(200%)
-
+.narrow header .logos > * {
+	
 }
+
 
 
 aside.left {
