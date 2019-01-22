@@ -359,10 +359,10 @@ header .logos {
 
 header .logos > *{
 	display:				inline-block;
-	flex:					0 0 auto;
+	flex:					1 1 16rem;
 
 	height:					10rem;
-	width:					16rem;
+	max-width:				20rem;
 
 
 	background-size:		contain;
