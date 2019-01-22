@@ -353,10 +353,11 @@ header .logos {
 	flex-wrap:			wrap;
 }
 
-.narrow .logos {
+.narrow header .logos {
 	position:			static;
 	flex-direction: 	column;
 	align-items: 		center;
+	height:				auto;
 }
 
 header .logos > *{
@@ -373,6 +374,26 @@ header .logos > *{
 	vertical-align:			middle;
 
 	margin:					1rem 2rem;
+
+	filter:					grayscale(100%) contrast(0%) brightness(200%)
+
+}
+
+
+.narrow header .logos > *{
+	display:				inline-block;
+	flex:					0 0 0;
+
+	height:					8rem;
+	width:					20rem;
+
+
+	background-size:		contain;
+	background-position:	50% 50%;
+	background-repeat:		no-repeat;
+	vertical-align:			middle;
+
+	margin:					1rem 0;
 
 	filter:					grayscale(100%) contrast(0%) brightness(200%)
 
