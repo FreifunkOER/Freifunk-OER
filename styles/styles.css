@@ -180,12 +180,14 @@ header h1 {
 	margin:				0;
 	padding:			0 1rem;
 	justify-content:	center;
+	align-items:		center;
+	min-height:			4em;
 }
 
 
 header h1 > *{
-	flex:				0 0 auto;
-	max-width:			12em;
+	flex:				0 1 auto;
+	max-width:			20em;
 	text-align:			center;
 }
 
@@ -193,6 +195,7 @@ header h1 > *{
 .narrow header h1 {
 	position:			static;
 	font-size:			2.5rem;
+	min-height:			0;
 }
 
 header #read {
