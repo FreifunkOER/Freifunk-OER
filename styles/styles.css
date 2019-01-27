@@ -171,27 +171,28 @@ header {
 
 header h1 {
 	position:			absolute;
-	display:			block;
-	top:				28vh;
-	left:				50%;
-	margin:				0;
-	margin-left:		-4.5em;
-	width:				9em;
+	display:			flex;
+	top:				20vh;
+	left:				0;
+	right:				0;
 	font-size:			3.5rem;
 	font-weight:		600;
+	margin:				0;
+	padding:			0 1rem;
+	justify-content:	center;
+}
+
+
+header h1 > *{
+	flex:				0 0 auto;
+	max-width:			12em;
 	text-align:			center;
 }
 
 
 .narrow header h1 {
 	position:			static;
-	width:				auto;
 	font-size:			2.5rem;
-	max-width:			9em;
-	padding:			0 1rem;
-	text-align:			center;
-	left:				0;
-	margin:				0 auto;
 }
 
 header #read {
@@ -310,10 +311,8 @@ header .panel > .center {
 	justify-content: 	center;
 }
 
-@media (max-width: 40rem) {
-	header .panel > .center {
-		display:		none;
-	}
+html.narrow	header .panel > .center {
+	display:			none;
 }
 
 
